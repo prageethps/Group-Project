@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Books
 from .forms import BooksCreateForm
 # Create your views here.
@@ -25,6 +25,7 @@ def add_items(request):
 	form = BooksCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
+		return redirect('/list_item')
 	context = {
 		"form": form,
 		"title": "Add Item",
