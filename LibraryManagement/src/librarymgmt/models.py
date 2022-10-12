@@ -17,4 +17,4 @@ class Books(models.Model):
 	export_to_CSV = models.BooleanField(default=False)
 
 	def __str__(self):
-		return self.category +' '+ self.item_name +' '+ str(self.quantity) +' '+ str(self.reserve_books)
+		return self.category +' '+ self.item_name +' '+ self.author +' '+ str(self.quantity) +' '+ str(self.reserve_books)
