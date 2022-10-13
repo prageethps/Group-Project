@@ -42,9 +42,28 @@
 <main role="main" class="container">
   <div class="jumbotron">
     <h1>{{title}}</h1>
-    {% for instance in queryset %}
-	{{instance.item_name}}, {{instance.quantity}}<br>
-	{% endfor %}
+    	<table class='table'>
+        	<thead>
+          		<tr>
+            		<th>COUNT</th>
+            		<th>CATEGORY</th>
+            		<th>ITEM NAME</th>
+            		<th>AUTHOR</th>
+            		<th>TOTAL QUANTITY </th>
+            		<th>RESERVE QUANTITY </th>
+          		</tr>
+        	</thead>
+      	{% for instance in queryset %}
+          		<tr>
+            		<td>{{forloop.counter}}</td>
+            		<td>{{instance.category}}</td>
+            		<td>{{instance.item_name}}</td>
+            		<td>{{instance.author}}</td>
+            		<td>{{instance.quantity}}</td>
+            		<td>{{instance.reserve_books}}</td>
+          		</tr>
+      	{% endfor %}
+    </table>
 
   </div>
 </main>
