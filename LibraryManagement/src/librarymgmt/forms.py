@@ -5,3 +5,8 @@ class BooksCreateForm(forms.ModelForm):
    class Meta:
      model = Books
      fields = ['category', 'item_name', 'author', 'quantity', 'reserve_books']
+
+class BooksSearchForm(forms.ModelForm):
+   class Meta:
+     model = Books
+     fields = ['category', 'item_name', 'author', 'reserve_books']
