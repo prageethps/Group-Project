@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Books
 from .forms import BooksCreateForm, BooksSearchForm
+from django.contrib import messages
 # Create your views here.
 def home(request):
 	title = 'Welcome: This is the Home Page'
@@ -39,6 +40,7 @@ def add_items(request):
 	form = BooksCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
+		messages.success(request, 'Successfully Saved')
 		return redirect('/list_item')
 	context = {
 		"form": form,
